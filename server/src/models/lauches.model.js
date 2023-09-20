@@ -41,20 +41,6 @@ async function loadLaunchData() {
       ],
     },
   });
-
-  const launchDocs = response.data;
-
-  for (launchDoc of launchDocs) {
-    const launch = {
-      flightNumber: launchDoc["flight_number"],
-      mission: launchDoc["name"],
-      rocket: launchDoc["rocket"],
-      launchData: launchDoc["date_local"],
-      upcoming: launchDoc["upcoming"],
-      success: launchDoc["success"],
-    };
-    console.log(launch.flightNumber, launch.mission);
-  }
 }
 
 async function saveLaunch(launch) {
