@@ -44,13 +44,6 @@ async function loadLaunchData() {
 }
 
 async function saveLaunch(launch) {
-  const isMatchPlanet = await planetsSchema.findOne({
-    kepler_name: launch.target,
-  });
-
-  if (!isMatchPlanet) {
-    throw new Error("No matching planet found");
-  }
   await launchesModel.updateOne(
     {
       flightNumber: launch.flightNumber,
@@ -81,6 +74,13 @@ async function existLaunchWithId(id) {
 }
 
 async function scheduleNewLaunch(launch) {
+  const isMatchPlanet = await planetsSchema.findOne({
+    kepler_name: launch.target,
+  });
+
+  if (!isMatchPlanet) {
+    throw new Error("No matching planet found");
+  }
   const newFlightNumber = (await getLatestFlightNumber()) + 1;
 
   const newLaunch = Object.assign(launch, {
