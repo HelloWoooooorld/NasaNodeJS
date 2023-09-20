@@ -25,7 +25,7 @@ const launchDataWithInvalidDate = {
 
 describe("Launches API", () => {
   beforeAll(async () => {
-    await mongoConnect();
+    mongoConnect();
     await loadPlanetsData();
   });
 
