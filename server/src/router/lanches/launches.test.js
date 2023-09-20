@@ -18,7 +18,7 @@ const mockWithoutDate = {
 const launchDataWithInvalidDate = {
   mission: "Kepler hue",
   rocket: "Explorer IS1",
-  launchDate: "asdasd",
+  launchDate: "date",
   target: "Kepler-62 f",
 };
 
@@ -28,7 +28,6 @@ describe("Launches API", () => {
   });
 
   afterAll(async () => {
-    await mongoDisconnect();
   });
 
   describe("GET /launches", () => {
