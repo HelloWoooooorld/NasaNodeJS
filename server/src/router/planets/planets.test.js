@@ -8,6 +8,9 @@ describe("Test GET planets", () => {
     await mongoConnect();
     await loadPlanetsData();
   });
+  afterAll(async () => {
+    await mongoDisconnect();
+  });
   test("It should 200 success", async () => {
     const res = await supertest(app)
       .get("/v1/planets")
