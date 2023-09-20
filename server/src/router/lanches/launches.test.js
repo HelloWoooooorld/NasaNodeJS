@@ -27,9 +27,6 @@ describe("Launches API", () => {
     await mongoConnect();
   });
 
-  afterAll(async () => {
-  });
-
   describe("GET /launches", () => {
     test("It should 200 success", async () => {
       const res = await supertest(app)
